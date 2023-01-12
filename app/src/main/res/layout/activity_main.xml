@@ -130,6 +130,12 @@
                 android:hint="Введите пароль"
                 android:ems="@integer/material_motion_duration_long_1"
                 android:id="@+id/et_Password"/>
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/show_password"
+                android:layout_marginTop="25dp"
+                android:id="@+id/iv_showPassword"/>
         </LinearLayout>
 
         <EditText
@@ -158,7 +164,6 @@
             android:visibility="gone"/>
         <EditText
             android:layout_marginTop="20dp"
-            android:inputType="textPassword"
             android:gravity="center"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
@@ -171,7 +176,6 @@
             android:visibility="gone"/>
         <EditText
             android:layout_marginTop="20dp"
-            android:inputType="textPassword"
             android:gravity="center"
             android:textColor="@color/white"
             android:textColorHint="@color/white"

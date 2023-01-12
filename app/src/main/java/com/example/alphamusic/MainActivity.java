@@ -31,6 +31,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //test
-        Intent intent = new Intent(MainActivity.this, AfterEnterActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(MainActivity.this, AfterEnterActivity.class);
+        //startActivity(intent);
         //test
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
@@ -72,6 +74,19 @@ public class MainActivity extends AppCompatActivity {
         TextView tvNonePassword = findViewById(R.id.tv_nonePassword);//ТЕКСТ "НЕТ ПАРОЛЯ"
         TextView tvInvalidPasswordOrLogin = findViewById(R.id.tv_invalidPasswordOrLogin);//ТЕКСТ "Неправильный логин или пароль"
         TextView tvNot4Symbols = findViewById(R.id.tv_notFourSymbols);//Данные меньше 4 символов
+        ImageView ivShowPassword = findViewById(R.id.iv_showPassword);//Глазик
+
+        //Работа глазика
+        ivShowPassword.setOnClickListener(view -> {
+            if(etPassword.getInputType() == (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)){
+                etPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                ivShowPassword.setImageResource(R.drawable.hide_password);
+            }
+            else{
+                etPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                ivShowPassword.setImageResource(R.drawable.show_password);
+            }
+        });
 
 
         //переход на РЕГИСТРАЦИЮ
@@ -88,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
             etNickName.setVisibility(View.VISIBLE);
             etLogin.setText("");
             etPassword.setText("");
+            ivShowPassword.setVisibility(View.GONE);
         });
 
         //переход на ВХОД
@@ -106,15 +122,15 @@ public class MainActivity extends AppCompatActivity {
             etRPassword.setText("");
             etRReplacePassword.setText("");
             etNickName.setText("");
+            ivShowPassword.setVisibility(View.VISIBLE);
         });
 
 
         //Регистрация
         btEnterReg.setOnClickListener(view -> {
-            if(etRLogin.getText().length() > 4 && etRPassword.getText().length() > 4 &&
-                    etRReplacePassword.getText().length() > 4 && etNickName.getText().length() > 4){
+            if(etRLogin.getText().length() >= 4 && etRPassword.getText().length() >= 4 &&
+                    etRReplacePassword.getText().length() >= 4 && etNickName.getText().length() >= 4){
                 if(etRPassword.getText().toString().equals(etRReplacePassword.getText().toString())){
-                    String id = mDatabase.getKey();
                     Toast.makeText(MainActivity.this, "Регистрация успешна\nТеперь войдите в свой аккаунт", Toast.LENGTH_LONG).show();
                     User user = new User(etNickName.getText().toString(), etRLogin.getText().toString(), etRPassword.getText().toString());
                     mDatabase.child("Users").push().setValue(user);
