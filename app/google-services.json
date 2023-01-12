@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1082491399002",
+    "firebase_url": "https://alphamusicdb-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "alphamusicdb",
+    "storage_bucket": "alphamusicdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1082491399002:android:3d995a993729f304ece163",
+        "android_client_info": {
+          "package_name": "com.example.alphamusic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1082491399002-9v5pgur2p15mr14m7b33u10n35a4ufot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA15_f9KboyxY8bkA-DASim2lrvm4SFW-U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1082491399002-9v5pgur2p15mr14m7b33u10n35a4ufot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
