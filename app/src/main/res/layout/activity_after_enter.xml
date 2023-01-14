@@ -8,18 +8,28 @@
     android:background="@drawable/after_enter_back">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/top_menu"
         android:background="@drawable/background_top_menu">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tv_userNick"
+            android:id="@+id/iv_miniLogo"
+            android:src="@drawable/iconalpha"
+            android:layout_marginStart="8dp"/>
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iv_miniLogo"
             android:id="@+id/tv_userNick"
             android:fontFamily="@font/furore"
             android:text="userName"
@@ -37,95 +47,146 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
+        android:id="@+id/lv_mainSelections"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/top_menu"
-        app:layout_constraintBottom_toTopOf="@id/cl_bottomMenu"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        android:orientation="vertical"
-        android:layout_marginStart="20dp">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="20dp">
-            <ImageView
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:src="@drawable/calm_for_selection"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Спокойная"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="10pt"
-                android:fontFamily="@font/furore"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ImageView
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:src="@drawable/calm_for_selection"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Спокойная"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="10pt"
-                android:fontFamily="@font/furore"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/top_menu"
-        app:layout_constraintBottom_toTopOf="@id/cl_bottomMenu"
         app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="vertical"
-        android:layout_marginEnd="20dp">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="20dp">
-            <ImageView
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:src="@drawable/calm_for_selection"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Спокойная"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="10pt"
-                android:fontFamily="@font/furore"/>
-        </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/top_menu"
+        app:layout_constraintBottom_toTopOf="@id/tv_allSongs">
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <ImageView
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:src="@drawable/calm_for_selection"/>
-            <TextView
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Спокойная"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="10pt"
-                android:fontFamily="@font/furore"/>
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/background_item_selection"
+                android:padding="15dp">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp">
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/calm_for_selection"/>
+                </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Спокойная"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="8pt"
+                    android:fontFamily="@font/furore"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/background_item_selection"
+                android:padding="15dp">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp">
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/chill_for_selection"/>
+                </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Для отдыха"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="8pt"
+                    android:fontFamily="@font/furore"/>
+            </LinearLayout>
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="20dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/background_item_selection"
+                android:padding="15dp">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp">
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/energetic_for_selection"/>
+                </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Энергичная"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="8pt"
+                    android:fontFamily="@font/furore"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/background_item_selection"
+                android:padding="15dp">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="15dp">
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/work_for_selection"/>
+                </androidx.cardview.widget.CardView>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Для работы"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="8pt"
+                    android:fontFamily="@font/furore"/>
+            </LinearLayout>
 
+        </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_allSongs"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lv_mainSelections"
+        app:layout_constraintBottom_toTopOf="@id/cl_bottomMenu"
+        android:text="Перейти ко всем песням"
+        android:background="@drawable/background_item_selection"
+        android:textColor="@color/white"
+        android:fontFamily="@font/furore"
+        android:textAlignment="center"
+        android:gravity="center"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_bottomMenu"

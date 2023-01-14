@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
             etLogin.setText("");
             etPassword.setText("");
             ivShowPassword.setVisibility(View.GONE);
+            tvNoneLogin.setVisibility(View.GONE);
+            tvNonePassword.setVisibility(View.GONE);
         });
 
         //переход на ВХОД
@@ -123,6 +125,11 @@ public class MainActivity extends AppCompatActivity {
             etRReplacePassword.setText("");
             etNickName.setText("");
             ivShowPassword.setVisibility(View.VISIBLE);
+            tvNoneAll.setVisibility(View.GONE);
+            tvNot4Symbols.setVisibility(View.GONE);
+            tvInvalidPassword.setVisibility(View.GONE);
+            tvInvalidPasswordOrLogin.setVisibility(View.GONE);
+            tvNoneLogin.setVisibility(View.GONE);
         });
 
 
@@ -202,10 +209,12 @@ public class MainActivity extends AppCompatActivity {
         etLogin.setOnFocusChangeListener((view, b) -> {
             tvNoneLogin.setVisibility(View.GONE);
             tvInvalidPasswordOrLogin.setVisibility(View.GONE);
+            tvNoneAll.setVisibility(View.GONE);
         });
         etPassword.setOnFocusChangeListener((view, b) -> {
             tvNonePassword.setVisibility(View.GONE);
             tvInvalidPasswordOrLogin.setVisibility(View.GONE);
+            tvNoneAll.setVisibility(View.GONE);
         });
 
         //Вход
@@ -235,7 +244,6 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                         else {
-                            Toast.makeText(MainActivity.this, "Авторизация не прошла", Toast.LENGTH_LONG).show();
                             tvInvalidPasswordOrLogin.setVisibility(View.VISIBLE);
                             etLogin.clearFocus();
                             etPassword.clearFocus();
@@ -248,11 +256,17 @@ public class MainActivity extends AppCompatActivity {
 
             }
             else{//надпси о некорректных данных
-                if(etLogin.getText().length() <= 0)
-                    tvNoneLogin.setVisibility(View.VISIBLE);
-                if(etPassword.getText().length() <= 0)
-                    tvNonePassword.setVisibility(View.VISIBLE);
-
+                if(etLogin.getText().length() <= 0 && etPassword.getText().length() <= 0) {
+                    tvNoneAll.setVisibility(View.VISIBLE);
+                }
+                else{
+                    if (etLogin.getText().length() <= 0)
+                        tvNoneLogin.setVisibility(View.VISIBLE);
+                    else {
+                        if (etPassword.getText().length() <= 0)
+                            tvNonePassword.setVisibility(View.VISIBLE);
+                    }
+                }
             }
         });
     }
