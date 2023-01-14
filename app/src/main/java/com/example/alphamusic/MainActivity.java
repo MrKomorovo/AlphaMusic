@@ -217,19 +217,22 @@ public class MainActivity extends AppCompatActivity {
                 mDatabase.child("Users").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-
+                        User userForShare = new User();
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
                             User user = ds.getValue(User.class);
                             if (etLogin.getText().toString().equals(user.Login) && etPassword.getText().toString().equals(user.Password)) {
                                 isAuthorization = true;
+                                userForShare = user;
                                 break;
                             }
                             else
                                 isAuthorization = false;
                         }
                         if(isAuthorization) {
-                            Intent intent = new Intent(MainActivity.this, AfterEnterActivity.class);
+                            Intent intent = new Intent(MainActivity.this, AfterEnterActivity.class).
+                                    putExtra("userName", userForShare.Nick);
                             startActivity(intent);
+
                         }
                         else {
                             Toast.makeText(MainActivity.this, "Авторизация не прошла", Toast.LENGTH_LONG).show();

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -45,10 +46,14 @@ public class AfterEnterActivity extends AppCompatActivity {
         pictureURL = new ArrayList<>();
         numOfSel = new ArrayList<>();
 
-        ListView lvLeft = findViewById(R.id.lv_left);//Левый список
-        ListView lvRight = findViewById(R.id.lv_right);//Правый список
         LinearLayout lvMain = findViewById(R.id.lv_main_menuItem);//Кнопка Главная
         LinearLayout lvProfile = findViewById(R.id.lv_profile_menuItem);//Кнопка Профиль
+        TextView tvNickName = findViewById(R.id.tv_userNick);//Имя пользователя
+
+        Bundle loginUser = getIntent().getExtras();
+        if(loginUser != null)
+            tvNickName.setText(loginUser.getString("userName"));
+
 
         //Получение информации о подборках
         mDatabase.child("Selections").addValueEventListener(new ValueEventListener() {

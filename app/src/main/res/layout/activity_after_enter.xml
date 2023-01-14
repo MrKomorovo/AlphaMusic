@@ -12,7 +12,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/top_menu">
+        android:id="@+id/top_menu"
+        android:background="@drawable/background_top_menu">
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/tv_userNick"
+            android:fontFamily="@font/furore"
+            android:text="userName"
+            android:textColor="@color/white"
+            android:layout_marginStart="20dp"
+            android:textSize="10pt"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,22 +36,96 @@
             android:layout_marginEnd="20dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ListView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lv_left"
+        app:layout_constraintTop_toBottomOf="@id/top_menu"
+        app:layout_constraintBottom_toTopOf="@id/cl_bottomMenu"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/top_menu"
-        app:layout_constraintBottom_toTopOf="@id/cl_bottomMenu"
-        app:layout_constraintEnd_toStartOf="@id/lv_right"/>
-    <ListView
+        android:orientation="vertical"
+        android:layout_marginStart="20dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/calm_for_selection"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Спокойная"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="10pt"
+                android:fontFamily="@font/furore"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/calm_for_selection"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Спокойная"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="10pt"
+                android:fontFamily="@font/furore"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lv_right"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/top_menu"
         app:layout_constraintBottom_toTopOf="@id/cl_bottomMenu"
-        app:layout_constraintStart_toEndOf="@id/lv_left"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:layout_marginEnd="20dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/calm_for_selection"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Спокойная"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="10pt"
+                android:fontFamily="@font/furore"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:src="@drawable/calm_for_selection"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Спокойная"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="10pt"
+                android:fontFamily="@font/furore"/>
+        </LinearLayout>
+
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_bottomMenu"
